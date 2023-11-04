@@ -11,5 +11,11 @@ export class CocktailCarouselComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  cards = [
+    { title: 'Tarjeta 1', content: 'Contenido de la Tarjeta 1' },
+    { title: 'Tarjeta 2', content: 'Contenido de la Tarjeta 2' },
+    { title: 'Tarjeta 3', content: 'Contenido de la Tarjeta 3' },
+    // Agrega más tarjetas según sea necesario
+  ];
 
 }

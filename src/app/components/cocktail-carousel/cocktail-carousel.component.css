@@ -1,0 +1,31 @@
+#carouselExampleAutoplaying {
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+  }
+  
+  .carousel-inner {
+    max-height: 300px; /* Ajusta la altura máxima según tus necesidades */
+  }
+  
+  .carousel-item {
+    text-align: center; /* Centra las imágenes horizontalmente */
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%; /* Ajusta el ancho de los botones de navegación */
+    background: rgba(0, 0, 0, 0.3); /* Agrega un fondo semi-transparente a los botones de navegación */
+    border-radius: 10px; /* Agrega esquinas redondeadas a los botones de navegación */
+    font-size: 1.5rem; /* Ajusta el tamaño de los iconos de navegación */
+    color: #fff; /* Cambia el color de los iconos de navegación */
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: transparent; /* Elimina el fondo del icono de navegación */
+  }
+  
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.6); /* Cambia el color de fondo al pasar el mouse sobre los botones de navegación */
+  }

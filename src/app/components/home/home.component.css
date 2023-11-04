@@ -1,0 +1,5 @@
+.centered-h2 {
+    text-align: center; /* Centra horizontalmente el texto en el elemento h2 */
+    font-size: 1.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
+    padding: 10px; /* Agrega un espacio de relleno de 10px en todos los lados del elemento h2 */
+  }
