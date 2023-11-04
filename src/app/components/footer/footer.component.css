@@ -1,0 +1,12 @@
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-toolbar{
+  justify-content: center;
+}
+
+.spacer {
+  flex: 1;
+}
