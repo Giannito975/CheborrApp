@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CocktailCarouselComponent } from './components/cocktail-carousel/cocktail-carousel.component';
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomeComponent,
     CocktailCarouselComponent,
     DrinkCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
