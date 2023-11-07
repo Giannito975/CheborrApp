@@ -12,7 +12,6 @@ import { CocktailCarouselComponent } from './components/cocktail-carousel/cockta
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomepagesComponent } from './pages/homepages/homepages.component';
 import { Error404Component } from './components/error404/error404.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +29,6 @@ import { RegisterComponent } from './components/register/register.component';
     DrinkCardComponent,
     NavbarComponent,
     FooterComponent,
-    HomepagesComponent,
     Error404Component,
     LoginComponent,
     RegisterComponent,
