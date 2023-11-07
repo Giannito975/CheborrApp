@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepagesComponent } from './pages/homepages/homepages.component';
-import { Error404Component } from './pages/error404/error404.component';
+import { Error404Component } from './components/error404/error404.component';
 import { LoginComponent } from './components/login/login.component';
 import { CocktailCarouselComponent } from './components/cocktail-carousel/cocktail-carousel.component';
 import { RegisterComponent } from './components/register/register.component';
