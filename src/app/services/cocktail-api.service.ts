@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, lastValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,10 @@ export class CocktailAPIService {
 
   URL:string="https://www.thecocktaildb.com";
 
+ 
+
   constructor(
-    private http:HttpClient
+     private http : HttpClient
   ) { }
 
   getAllAlcoholicDrinks(){
@@ -35,4 +39,6 @@ export class CocktailAPIService {
     return this.http.get(`${this.URL}/api/json/v1/1/search.php?${params}`).pipe(map((result:any)=>result.drinks));
   }
 
+  
+ 
 }

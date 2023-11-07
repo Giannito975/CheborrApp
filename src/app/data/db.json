@@ -1,0 +1,26 @@
+{
+    "users": [
+    {
+      "id": "1",
+      "name": "juan manuel",
+      "email": "juan@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "gianni",
+      "email": "gianni@gmail.com",
+      "password": "1234"
+    }
+],
+"catalogo":[
+  {
+    "id": "1",
+    "drink": "Mojito",
+    "price" : 3500,
+    "description" : "Drink with Gin tonic from Australia, with some species from Asia.",
+    "category": "Drink with Alcohol",
+    "urlImage": ""
+  }
+]
+}

@@ -1,12 +1,24 @@
-.footer-content {
+.nav-footer{
   display: flex;
-  justify-content: space-between;
+  /* background-color: aquamarine; */
+  gap: 10rem;
 }
 
-mat-toolbar{
-  justify-content: center;
+.elemento-nav{
+  display: flex;
+  flex-direction: column;
 }
 
-.spacer {
-  flex: 1;
+footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:2.5rem;
+  background-color: #691717;
+  color:white;
+}
+
+.social-networks{
+  display: flex;
+  gap: 1.2rem;
 }

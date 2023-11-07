@@ -12,6 +12,15 @@ import { CocktailCarouselComponent } from './components/cocktail-carousel/cockta
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomepagesComponent } from './pages/homepages/homepages.component';
+import { Error404Component } from './pages/error404/error404.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './components/register/register.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +30,10 @@ import { FooterComponent } from './components/footer/footer.component';
     DrinkCardComponent,
     NavbarComponent,
     FooterComponent,
+    HomepagesComponent,
+    Error404Component,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +41,13 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+  ],
+  exports:[
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
