@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CocktailAPIService } from 'src/app/services/cocktail-api.service';
 
+
 @Component({
   selector: 'app-coctel-list',
   templateUrl: './coctel-list.component.html',
@@ -8,43 +9,27 @@ import { CocktailAPIService } from 'src/app/services/cocktail-api.service';
 })
 export class CoctelListComponent implements OnInit {
 
-  alcoholicDrinks:string[]=[];
-  nonAlcoholicDrinks:string[]=[];
-  cocktails:string[]=[];
+  public alcoholicCoctailList:any = [];
+  public nonAlcoholicCoctailList:any = [];
+  public allCocktailsList:any = [];
 
-  constructor(
-    private _cocktails:CocktailAPIService,
-  ) { }
+  constructor(private CocktailAPIService:CocktailAPIService){}
 
   ngOnInit(): void {
-   this.fetchAlcoholicDrinks();
-   this.fetchNonAlcoholicDrinks();
+
   }
 
-
-  fetchAlcoholicDrinks(){
-    this._cocktails.getAllAlcoholicDrinks().subscribe((data:any)=>{
-      console.log(data);
-      let tempDrinks:string[]=data;
-     this.alcoholicDrinks=tempDrinks;
-   
-    }, (error)=>{
-      console.log(error);
+  public loadAlcoholicDrinks(){
+    this.CocktailAPIService.getAllAlcoholicDrinks()
+    .subscribe(respuesta => {
+      this.allCocktailsList = respuesta;
     })
   }
 
-  fetchNonAlcoholicDrinks(){
-    this._cocktails.getAllNonAlcoholicDrinks().subscribe((data:any)=>{
-      console.log(data);
-      let tempDrinks:string[]=data;
-     this.nonAlcoholicDrinks=tempDrinks;
-    }, (error)=>{
-      console.log(error);
+  public loadNonAlcoholicDrinks(){
+    this.CocktailAPIService.getAllNonAlcoholicDrinks()
+    .subscribe(respuesta => {
+      this.allCocktailsList = respuesta;
     })
   }
-
-  getAllDrinks(){
-    this.cocktails = this.alcoholicDrinks.concat(this.nonAlcoholicDrinks);
- }
-
 }

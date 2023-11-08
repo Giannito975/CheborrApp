@@ -6,6 +6,7 @@ import { CocktailCarouselComponent } from './components/home/cocktail-carousel/c
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
+import { CocteleriaComponent } from './components/cocteleria/cocteleria.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'home', 
     component: HomeComponent
+  },
+  {
+    path: 'cocteleria',
+    component: CocteleriaComponent
   },
   {
     path: 'bodega-personal',

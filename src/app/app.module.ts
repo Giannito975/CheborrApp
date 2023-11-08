@@ -19,6 +19,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
+import { CocteleriaComponent } from './components/cocteleria/cocteleria.component';
+import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-list.component';
 
 
 
@@ -26,6 +28,7 @@ import { BodegaPersonalComponent } from './components/bodega-personal/bodega-per
   declarations: [
     AppComponent,
     HomeComponent,
+    CocteleriaComponent,
     CocktailCarouselComponent,
     DrinkCardComponent,
     NavbarComponent,

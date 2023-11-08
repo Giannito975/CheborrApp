@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoctelListComponent } from './coctel-list/coctel-list.component';
 
 @Component({
   selector: 'app-cocteleria',
@@ -10,6 +11,7 @@ export class CocteleriaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    CoctelListComponent;
   }
 
 }
