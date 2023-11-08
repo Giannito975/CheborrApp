@@ -19,3 +19,4 @@ export class CocktailCarouselComponent implements OnInit {
   ];
 
 }
+  

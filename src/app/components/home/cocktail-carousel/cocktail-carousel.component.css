@@ -1,4 +1,4 @@
-#carouselExampleAutoplaying {
+  #carouselExampleAutoplaying {
     max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
     margin: 0 auto; /* Centra el carrusel horizontalmente */
   }
@@ -28,4 +28,4 @@
   .carousel-control-prev:hover,
   .carousel-control-next:hover {
     background: rgba(0, 0, 0, 0.6); /* Cambia el color de fondo al pasar el mouse sobre los botones de navegación */
-  }
+  } 
