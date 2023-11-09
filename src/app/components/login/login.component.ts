@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersApiService } from 'src/app/services/users-api.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,15 @@ export class LoginComponent  {
   public email: string = '';
   public password: string = '';
 
-  constructor(private usersApiService : UsersApiService,private router: Router) { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   public async initSession() {
   
     try {
-      let isLogin: boolean = await this.usersApiService.login(this.email, this.password)
+      let isLogin: boolean = await this.authService.login(this.email, this.password)
 
       if (isLogin) {
-        this.router.navigate(["/bebidas"])
+        this.router.navigate(["/home"]);
       }
 
     } catch (error) {

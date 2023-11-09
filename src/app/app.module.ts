@@ -14,11 +14,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Error404Component } from './components/error404/error404.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -34,6 +36,7 @@ import { BodegaPersonalComponent } from './components/bodega-personal/bodega-per
     LoginComponent,
     RegisterComponent,
     BodegaPersonalComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,14 @@ import { BodegaPersonalComponent } from './components/bodega-personal/bodega-per
     FormsModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   exports:[
+    HomeComponent,
+    Error404Component,
+    FooterComponent,
+    NavbarComponent,
    
   ],
   providers: [],

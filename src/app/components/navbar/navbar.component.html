@@ -1,12 +1,53 @@
-<mat-toolbar color="primary">
-    <span>Cheborrap</span>
-    <br>
-    <button mat-button routerLink="/home">Home</button>
-    <button mat-button routerLink="/bodega-personal">Bodega Personal</button>
-    <button mat-button routerLink="/cocteleria">Coctelería</button>
-    <button mat-button routerLink="/nosotros">Nosotros</button>
-    <button mat-button routerLink="/login">LogIn</button>
-    <button mat-button routerLink="/register">Register</button>
-  </mat-toolbar>
+<header class="nav-bar">
+
+  <div>
+    <a id="page-logo" href="">
+      <img src="./../../../assets/cheborrapp.png" alt="Logo de la página" href="">
+    </a>
+  </div>
   
-  <header class="nav-bar">
+
+  <mat-toolbar color="secundary">
+      <button mat-button routerLink="/home">Home</button>
+      <button mat-button routerLink="/bodega-personal">Bodega Personal</button>
+      <button mat-button routerLink="/cocteleria">Coctelería</button>
+      <button mat-button routerLink="/nosotros">Nosotros</button>
+  
+      <ng-container *ngIf="!userLoggedIn; else isLoggedIn">
+      <button mat-button routerLink="/login">LogIn</button>
+      <button mat-button routerLink="/register">Register</button>
+    </ng-container>
+      <ng-template #isLoggedIn>
+        
+  
+        <a (click)="logOut()">LogOut</a>
+      </ng-template>
+        <!-- Botones para usuarios no autenticados
+    <button mat-button *ngIf="!userLoggedIn" routerLink="/login">Login</button>
+    <button mat-button *ngIf="!userLoggedIn" routerLink="/register">Register</button>
+  
+    Botón para usuarios autenticados 
+    <button mat-button *ngIf="!userLoggedIn" (click)="logOut()">Logout</button> -->
+  
+    </mat-toolbar>
+  
+  <!-- <header class="nav-bar">
+  
+    <nav class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/Bodega-personal" routerLinkActive="active">Bodega Personal</a>
+      <a routerLink="/Cocteleria" routerLinkActive="active">Cocteleria</a>
+      <a routerLink="/Nosotros" routerLinkActive="active">Nosotros</a>
+      <ng-container *ngIf="!userLoggedIn; else isLoggedIn">
+        <a routerLink="/login" routerLinkActive="active">Log In</a>
+        <a routerLink="/register" routerLinkActive="active">Register</a>
+      </ng-container>
+  
+      <ng-template #isLoggedIn>
+        <a routerLink="/orders" routerLinkActive="active">Orders</a>
+  
+        <a (click)="logOut()">Log Out</a>
+      </ng-template>
+  
+    </nav>
+  </header> -->

@@ -1,21 +1,22 @@
 .register-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+   margin-top: 0rem;
+  background-image: url('./../../../assets/img/registrar.png');
   }
   
   form{
     margin: 2rem 0;
-    border-radius: 1rem;
-    background-color: #ffffff;
-    width: 45%;
+    border-radius: 3rem;
+    background-color: rgba(236, 229, 229, 0.9);
+    width: 35%;
   }
   
   .logo{
     padding-top: .5rem;
     text-align: center;
   }
-  
+
   .logo img{
     width: auto;
     height: 5rem;
@@ -38,7 +39,7 @@
   }
   .sign-in input{
     width: 100%;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(211, 197, 197);
     border: none;
     padding: 0.8rem;
   }
@@ -51,7 +52,7 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    background-color: rgb(255, 127, 31);
+    background-color: rgb(22, 125, 172);
     width: 100%;
     cursor:pointer;
   
@@ -61,11 +62,11 @@
   }
   
   .go-to-login a{
-    color: rgb(255, 127, 31);
+    color: rgb(22, 137, 172);
   }
   
   .go-to-login p{
-    margin: 0;
+    margin: 1;
   }
   
   .data-group{

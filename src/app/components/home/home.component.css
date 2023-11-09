@@ -1,5 +1,57 @@
-.centered-h2 {
-    text-align: center; /* Centra horizontalmente el texto en el elemento h2 */
-    font-size: 1.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
-    padding: 10px; /* Agrega un espacio de relleno de 10px en todos los lados del elemento h2 */
-  }
+.background-image {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  /* Establece la altura mínima de la imagen al alto de la ventana */
+  background-image: linear-gradient(rgba(1, 1, 1, 0.5), rgba(0, 0, 0, 0.5)), url("../../../assets/img/fondo.home.png");
+}
+
+shared-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  /* Asegura que esté por encima de la imagen de fondo */
+  /* Agrega otros estilos necesarios para el hero */
+}
+
+  
+/* .hero img{
+  width: auto;
+  height: 10rem;
+}
+
+.hero{
+  margin: 9rem 3rem;
+  color:white;
+}
+
+.slogan{
+  font-weight: lighter;
+}
+
+button {
+  margin: 1rem 0.6rem;
+  border:none;
+  color: white;
+  text-decoration: none;
+  padding: .4rem .6rem;
+  text-align: center;
+
+  background-color: rgb(5, 152, 98);
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+
+button:active{
+  color: rgb(0, 0, 0);
+}
+button:hover{
+  background-color: rgb(15, 109, 75);
+} */
+
+
+

@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Error404Component } from './components/error404/error404.component';
 import { LoginComponent } from './components/login/login.component';
-import { CocktailCarouselComponent } from './components/home/cocktail-carousel/cocktail-carousel.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
+import { Error404Component } from './components/error404/error404.component';
 
 const routes: Routes = [
+  {
+    path: 'home', 
+    component: HomeComponent    
+  },
   {
     path: 'login', 
     component: LoginComponent,
@@ -18,10 +21,6 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'home', 
-    component: HomeComponent
-  },
-  {
     path: 'bodega-personal',
     component: BodegaPersonalComponent
   },
@@ -30,14 +29,15 @@ const routes: Routes = [
     component: Error404Component
   },
   {
-    path: '**',
-    redirectTo: '404'
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: '**',
+    redirectTo: '404'
+  },
+ 
 ];
 
 @NgModule({
