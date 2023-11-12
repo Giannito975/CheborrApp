@@ -1,8 +1,14 @@
-<!-- card.component.html -->
-<div class="card">
-    <img src="allCocktailList." alt="Imagen de la tarjeta" class="card-image">
+<div class="cocktail-list">
+  <div class="cocktail-list-search">
+    <input type="text" placeholder="Search by name or ingredient">
+  </div>
+  <div class="cocktail-list-card" *ngFor="let cocktail of allCocktailsList">
+    <img [src]="cocktail.strDrinkThumb" alt="Imagen de la tarjeta" class="card-image">
     <div class="card-body">
-      <h3 class="card-title">Título de la Tarjeta</h3>
-      <button class="card-button">Botón</button>
+      <h3 class="card-title"> {{cocktail.strDrink}} </h3>
+      <button mat-fab disabled aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
     </div>
+  </div>
 </div>

@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,12 +26,12 @@ import { CocteleriaComponent } from './components/cocteleria/cocteleria.componen
 import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-list.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CocteleriaComponent,
+    CoctelListComponent,
     CocktailCarouselComponent,
     DrinkCardComponent,
     NavbarComponent,
@@ -45,6 +48,8 @@ import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatDividerModule,
     FormsModule,
     RouterModule,
     HttpClientModule,

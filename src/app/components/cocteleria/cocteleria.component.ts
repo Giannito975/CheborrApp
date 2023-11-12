@@ -11,7 +11,7 @@ export class CocteleriaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    CoctelListComponent;
+  
   }
 
 }
