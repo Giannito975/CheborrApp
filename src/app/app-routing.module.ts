@@ -8,6 +8,10 @@ import { Error404Component } from './components/error404/error404.component';
 
 const routes: Routes = [
   {
+    path:'bodega',
+    loadChildren:() => import('./services/cocktail-api.service').then(m => m.CocktailAPIService)
+  },
+  {
     path: 'home', 
     component: HomeComponent    
   },

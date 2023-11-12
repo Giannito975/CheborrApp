@@ -11,6 +11,41 @@
       "name": "gianni",
       "email": "gianni@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "LhEB9EC",
+      "email": "carlistos@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "7GoV_n1",
+      "email": "agustin@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "YtDF4Wr",
+      "email": "prueba1@gmail.com",
+      "password": "123"
+    },
+    {
+      "email": "prueba100@gmail.com",
+      "password": "123",
+      "id": "4uUmC9T"
+    },
+    {
+      "email": "gianito@gmail.com",
+      "password": "123",
+      "id": "Nb7NJax"
+    },
+    {
+      "email": "eze@gmail.com",
+      "password": "123",
+      "id": "oO_BITR"
+    },
+    {
+      "email": "ezeeee@gmail.com",
+      "password": "123",
+      "id": "swGI0jR"
     }
   ]
 }

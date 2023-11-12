@@ -12,8 +12,6 @@ export class CocktailAPIService {
 
   URL:string="https://www.thecocktaildb.com";
 
- 
-
   constructor(
      private http : HttpClient
   ) { }
