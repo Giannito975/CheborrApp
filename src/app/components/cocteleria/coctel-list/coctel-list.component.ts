@@ -16,6 +16,7 @@ export class CoctelListComponent implements OnInit {
   //public alcoholicCoctailList:any = [];
   //public nonAlcoholicCoctailList:any = [];
   public allCocktailsList:any = [];
+  filterDrink = '';
 
   constructor(private CocktailAPIService:CocktailAPIService){}
 

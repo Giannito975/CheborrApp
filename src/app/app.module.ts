@@ -25,6 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
 import { CocteleriaComponent } from './components/cocteleria/cocteleria.component';
 import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-list.component';
+import { FilterPipe } from './components/pipes/filter.pipe';
 
 
 @NgModule({
@@ -41,6 +42,8 @@ import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-
     LoginComponent,
     RegisterComponent,
     BodegaPersonalComponent,
+    FilterPipe,
+
   ],
   imports: [
     BrowserModule,
