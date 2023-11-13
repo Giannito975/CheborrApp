@@ -3,6 +3,7 @@ import { CocktailAPIService } from 'src/app/services/cocktail-api.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -15,8 +16,6 @@ export class CoctelListComponent implements OnInit {
   //public alcoholicCoctailList:any = [];
   //public nonAlcoholicCoctailList:any = [];
   public allCocktailsList:any = [];
-  corazonColor = 'black';
-  botonColor = 'blue';
 
   constructor(private CocktailAPIService:CocktailAPIService){}
 
@@ -39,21 +38,31 @@ export class CoctelListComponent implements OnInit {
     })
   }
 
-  verMas(): void {
-    console.log('Ver más clickeado.');
-    // Puedes agregar lógica adicional aquí.
+  addCocktailToBodegaPersonal(){
+    let flag = 0;
+    //si sale todo bien, tiramos el sweet alert positivo
+    if(flag == 0){
+      this.positiveAddCocktailAlert();
+    }else{ //si no, el negativo
+      this.negativeAddCocktailAlert();
+    }
   }
 
-  toggleCorazon(): void {
-    this.corazonColor = this.corazonColor === 'red' ? 'black' : 'red';
-    console.log('Botón de corazón clickeado.');
-    // Puedes agregar lógica adicional aquí.
+  positiveAddCocktailAlert() : void{
+    Swal.fire({
+      icon: "success",
+      title: "Trago agregado a tu Bodega Personal",
+      showConfirmButton: false,
+      timer: 2000
+    });
   }
 
-  cambiarColorBoton(): void {
-    this.botonColor = this.botonColor === 'blue' ? 'green' : 'blue';
-    console.log('Botón clickeado. Color actual:', this.botonColor);
-    // Puedes agregar lógica adicional aquí.
+  negativeAddCocktailAlert() : void{
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No pudo agregarse el trago"
+    });
   }
 
 }
