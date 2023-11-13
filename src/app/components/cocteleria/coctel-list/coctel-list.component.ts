@@ -15,6 +15,8 @@ export class CoctelListComponent implements OnInit {
   //public alcoholicCoctailList:any = [];
   //public nonAlcoholicCoctailList:any = [];
   public allCocktailsList:any = [];
+  corazonColor = 'black';
+  botonColor = 'blue';
 
   constructor(private CocktailAPIService:CocktailAPIService){}
 
@@ -36,4 +38,22 @@ export class CoctelListComponent implements OnInit {
       this.allCocktailsList = respuesta;
     })
   }
+
+  verMas(): void {
+    console.log('Ver más clickeado.');
+    // Puedes agregar lógica adicional aquí.
+  }
+
+  toggleCorazon(): void {
+    this.corazonColor = this.corazonColor === 'red' ? 'black' : 'red';
+    console.log('Botón de corazón clickeado.');
+    // Puedes agregar lógica adicional aquí.
+  }
+
+  cambiarColorBoton(): void {
+    this.botonColor = this.botonColor === 'blue' ? 'green' : 'blue';
+    console.log('Botón clickeado. Color actual:', this.botonColor);
+    // Puedes agregar lógica adicional aquí.
+  }
+
 }

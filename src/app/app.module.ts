@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -50,6 +51,7 @@ import { CoctelListComponent } from './components/cocteleria/coctel-list/coctel-
     MatCardModule,
     MatIconModule,
     MatDividerModule,
+    MatGridListModule,
     FormsModule,
     RouterModule,
     HttpClientModule,
