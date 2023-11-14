@@ -14,11 +14,12 @@
   justify-content: space-between;
   padding: .1rem .1rem; 
   background-color: #333;
-}
+
+} 
 
 nav {
   display: flex;
-  gap: 1.9rem; 
+  gap: 1.9rem;  
   align-items: center;
 }
 
@@ -30,7 +31,7 @@ header img {
 
 .nav-links a {
   position: relative;
-  color: #816e6e;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   margin-right: 10px    
@@ -43,13 +44,13 @@ header img {
   height: 2px;
   background-color: #ffffff;
 
+  /* Color de la línea de abajo */
   bottom: 0;
   left: 0;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
-
 .nav-links a:hover::before {
   transform: scaleX(1);
 }
@@ -59,18 +60,20 @@ header img {
   transform: scaleX(1);
 }
 
+/*
 .cocteleria-link {
-  margin-right: 5px; /* Ajusta el margen aquí */
-}
+  margin-right: 50px;
+}*/
 
+/*
 .nav-user-info {
   display: flex;
   align-items: center;
-  gap: 5px; /* Ajusta el espacio entre elementos aquí */
-}
+  gap: 5px;
+}*/
 
 .mat-toolbar button.user-name {
-  color: white;
+  color: black;
   font-weight: bold;
   gap: 5px;
   font-size: 14px; /* Ajusta el tamaño de fuente según tus preferencias */
@@ -79,5 +82,4 @@ header img {
 .log-out-link {
   margin-left: right;
 }
-
 
