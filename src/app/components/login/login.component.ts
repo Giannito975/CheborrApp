@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/services/models';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -12,21 +14,79 @@ export class LoginComponent  {
 
   public email: string = '';
   public password: string = '';
+  
+  public user: User = new User();
 
   constructor(private authService: AuthService,private router: Router) { }
+
 
   public async initSession() {
   
     try {
-      let isLogin: boolean = await this.authService.login(this.email, this.password)
+      let isLogin: boolean = await this.authService.login(this.email, this.password);
 
       if (isLogin) {
         this.router.navigate(["/home"]);
+      }else{
+        this.mostrarSweetAlert();
       }
 
     } catch (error) {
       console.log(error);
     }
+  }   
+
+
+  mostrarSweetAlert(): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'No existe el usuario!',
+    });
   }
 
 }
+
+// loginError:string="";
+// loginForm=this.formBuilder.group({
+//   email:['iva@gmail.com',[Validators.required,Validators.email]],
+//   password: ['',Validators.required],
+// })
+// constructor(private formBuilder:FormBuilder, private router:Router, private loginService: LoginService) { }
+
+// ngOnInit(): void {
+// }
+
+// get email(){
+//   return this.loginForm.controls['email'];
+// }
+
+// get password()
+// {
+//   return this.loginForm.controls['password'];
+// }
+
+// login(){
+//   if(this.loginForm.valid){
+//     this.loginError="";
+//     this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+//       next: (userData) => {
+//         console.log(userData);
+//       },
+//       error: (errorData) => {
+//         console.error(errorData);
+//         this.loginError=errorData;
+//       },
+//       complete: () => {
+//         console.info("Login completo");
+//         this.router.navigateByUrl('/inicio');
+//         this.loginForm.reset();
+//       }
+//     })
+
+//   }
+//   else{
+//     this.loginForm.markAllAsTouched();
+//     alert("Error al ingresar los datos.");
+//   }
+// }

@@ -21,7 +21,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { CommonModule } from '@angular/common';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CommonModule } from '@angular/common';
     RegisterComponent,
     BodegaPersonalComponent,
     HeroComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MatSnackBarModule
   ],
   exports:[
     HomeComponent,

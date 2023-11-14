@@ -6,16 +6,16 @@
     <form class="login-wrap" (ngSubmit)="initSession()">
       <div class="login-html">
         <div class="logo">
-          <img src="./../../../assets/cheborrapp.png" alt="">
+          <img src="./../../../assets/cheborrap-logo.png" alt="">
         </div>
         <div class="group">
           <label for="email" class="label">Correo electronico</label>
-          <input type="text" name="email" class="input" [(ngModel)]="email">
+          <input type="text" name="email" class="input" required [(ngModel)]="email">
         </div>
 
         <div class="group">
           <label for="password" class="label">Contraseña</label>
-          <input type="password" name="password" class="input" [(ngModel)]="password">
+          <input type="password" name="password" class="input" required [(ngModel)]="password">
         </div>
 
         <div class="group">
@@ -26,8 +26,8 @@
           <button type="submit" class="button">Iniciar sesión</button>
         </div>
 
-        <div class="open-account">
-          <p>¿No tiene una cuenta?<a> Registrate </a></p>
+        <div class="group">
+          <a class="register-form" routerLink="/register-form"> </a>¿No tiene una cuenta?<a> Registrate </a>
         </div>
 
       </div>
@@ -36,3 +36,4 @@
   </div>
 </div>
 <app-footer></app-footer>
+

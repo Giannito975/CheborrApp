@@ -2,7 +2,7 @@
 
   <div>
     <a id="page-logo" href="">
-      <img src="./../../../assets/cheborrapp.png" alt="Logo de la página" href="">
+      <img src="./../../../assets/cheborrap-logo.png" alt="Logo de la página" href="">
     </a>
   </div>
   
@@ -14,16 +14,25 @@
       <button mat-button routerLink="/nosotros">Nosotros</button>
   
       <ng-container *ngIf="!userLoggedIn; else isLoggedIn">
-      <button mat-button routerLink="/login">LogIn</button>
+      <button mat-button routerLink="/login">Log In</button>
       <button mat-button routerLink="/register">Register</button>
-    </ng-container>
+    </ng-container>   
+
       <ng-template #isLoggedIn>
+        <a class="cocteleria-link" routerLink="/cocteleria" routerLinkActive="active"></a>
+
+            <!-- con el button logro poder redireccionar en este caso el usuario a su perfil con sus datos por ejemplo
+            en el caso que no se quiera, se deja con <P> -->
+        <div>
+          <button mat-button *ngIf="currentUser">{{currentUser.name }}</button>
+        </div>
         
-  
-        <a (click)="logOut()">LogOut</a>
+        <button mat-button (click)="logOut()">Log Out</button>
       </ng-template>
+    
+      
 
-
+    </mat-toolbar>
       
         <!-- Botones para usuarios no autenticados
     <button mat-button *ngIf="!userLoggedIn" routerLink="/login">Login</button>
@@ -32,7 +41,7 @@
     Botón para usuarios autenticados 
     <button mat-button *ngIf="!userLoggedIn" (click)="logOut()">Logout</button> -->
   
-    </mat-toolbar>
+
   
   <!-- <header class="nav-bar">
   

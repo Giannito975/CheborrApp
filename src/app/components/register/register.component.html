@@ -1,17 +1,30 @@
 <app-navbar></app-navbar>
 <div class="register-container">
   <form id="register-form" (ngSubmit)="registerUser()">
-    <div class="register-html">
-      <img src="./../../../../../assets/images/registrar.png" alt="" />
+    <div class="logo">
+      <img src="./../../../assets/cheborrap-logo.png" alt="">
     </div>
     <h4>Regístrate</h4>
     <div class="form-group">
       <div class="sign-in">
+        <div class="sign-in">
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required 
+            [(ngModel)]="user.name"
+            required
+          />
+        </div>
+
         <label for="email">Email</label>
         <input
-          type="email"
+          type="text"
           id="email"
           name="email"
+          required 
           [(ngModel)]="user.email"
           required
         />
@@ -24,6 +37,7 @@
             type="password"
             id="password"
             name="password"
+            required 
             [(ngModel)]="user.password"
             required
           />
@@ -35,6 +49,7 @@
             type="password"
             id="confirm-password"
             name="confirm-password"
+            required 
             [(ngModel)]="passwordConfirm"
             required
           />
@@ -48,7 +63,6 @@
       <div class="go-to-login">
         <p>¿Ya tienes una cuenta?<a routerLink="/login"> Iniciar sesión </a></p>
       </div>
-      
     </div>
   </form>
 </div>

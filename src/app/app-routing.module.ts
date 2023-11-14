@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { BodegaPersonalComponent } from './components/bodega-personal/bodega-personal.component';
 import { Error404Component } from './components/error404/error404.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path : 'forgot-password',
+    component : ForgotPasswordComponent
   },
   {
     path: 'bodega-personal',

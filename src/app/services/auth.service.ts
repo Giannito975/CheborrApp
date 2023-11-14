@@ -10,14 +10,20 @@ export class AuthService {
 
   private user: User | undefined;
   public userLoggedIn: boolean = false;
+  
+  get currentUser(): User | undefined {
+    return this.user;
+  }
 
   constructor(private usersApiService: UsersApiService) { }
 
-  // get currentUser(): User | undefined {
+  //  get currentUser(): User | undefined {
   //   if (!this.user) return undefined;
 
-  //   return structuredClone(this.user);
-  // }
+  // return structuredClone(this.user);
+  //  }
+ 
+
 
   public async login(email: string, password: string): Promise<boolean> {
 
@@ -32,7 +38,7 @@ export class AuthService {
 
       if (this.user) {
 
-        localStorage.setItem('token', this.user.email.toString());
+        localStorage.setItem('token', this.user.id.toString());
         this.userLoggedIn = true;
       }
     } catch (error) {
