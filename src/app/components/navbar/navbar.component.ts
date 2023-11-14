@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersApiService } from 'src/app/services/users-api.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/services/models';
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +10,23 @@ import { UsersApiService } from 'src/app/services/users-api.service';
 })
 export class NavbarComponent  implements OnInit{
 
-  constructor(private router: Router, private usersApiService: UsersApiService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
+  currentUser: User | undefined;
+  
   ngOnInit(): void {
+    if (this.authService.userLoggedIn) {
+      this.currentUser = this.authService.currentUser;
+    }
   }
 
   public logOut() {
-    this.usersApiService.logOut();
+    this.authService.logOut();
     this.router.navigate(['']);
   }
 
   get userLoggedIn() {
-    return this.usersApiService.userLoggedIn;
+    return this.authService.userLoggedIn;
   }
   
 }

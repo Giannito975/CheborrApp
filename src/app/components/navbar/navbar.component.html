@@ -1,12 +1,65 @@
-<mat-toolbar color="primary">
-    <span>Cheborrap</span>
-    <br>
-    <button mat-button routerLink="/home">Home</button>
-    <button mat-button routerLink="/bodega-personal">Bodega Personal</button>
-    <button mat-button routerLink="/cocteleria">Coctelería</button>
-    <button mat-button routerLink="/nosotros">Nosotros</button>
-    <button mat-button routerLink="/login">LogIn</button>
-    <button mat-button routerLink="/register">Register</button>
-  </mat-toolbar>
+<header class="nav-bar">
+
+  <div>
+    <a id="page-logo" href="">
+      <img src="./../../../assets/cheborrap-logo.png" alt="Logo de la página" href="">
+    </a>
+  </div>
   
-  <header class="nav-bar">
+
+  <mat-toolbar color="secundary">
+      <button mat-button routerLink="/home">Home</button>
+      <button mat-button routerLink="/bodega-personal">Bodega Personal</button>
+      <button mat-button routerLink="/cocteleria">Coctelería</button>
+      <button mat-button routerLink="/nosotros">Nosotros</button>
+  
+      <ng-container *ngIf="!userLoggedIn; else isLoggedIn">
+      <button mat-button routerLink="/login">Log In</button>
+      <button mat-button routerLink="/register">Register</button>
+    </ng-container>   
+
+      <ng-template #isLoggedIn>
+        <a class="cocteleria-link" routerLink="/cocteleria" routerLinkActive="active"></a>
+
+            <!-- con el button logro poder redireccionar en este caso el usuario a su perfil con sus datos por ejemplo
+            en el caso que no se quiera, se deja con <P> -->
+        <div>
+          <button mat-button *ngIf="currentUser">{{currentUser.name }}</button>
+        </div>
+        
+        <button mat-button (click)="logOut()">Log Out</button>
+      </ng-template>
+    
+      
+
+    </mat-toolbar>
+      
+        <!-- Botones para usuarios no autenticados
+    <button mat-button *ngIf="!userLoggedIn" routerLink="/login">Login</button>
+    <button mat-button *ngIf="!userLoggedIn" routerLink="/register">Register</button>
+  
+    Botón para usuarios autenticados 
+    <button mat-button *ngIf="!userLoggedIn" (click)="logOut()">Logout</button> -->
+  
+
+  
+  <!-- <header class="nav-bar">
+  
+    <nav class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/Bodega-personal" routerLinkActive="active">Bodega Personal</a>
+      <a routerLink="/Cocteleria" routerLinkActive="active">Cocteleria</a>
+      <a routerLink="/Nosotros" routerLinkActive="active">Nosotros</a>
+      <ng-container *ngIf="!userLoggedIn; else isLoggedIn">
+        <a routerLink="/login" routerLinkActive="active">Log In</a>
+        <a routerLink="/register" routerLinkActive="active">Register</a>
+      </ng-container>
+  
+      <ng-template #isLoggedIn>
+        <a routerLink="/orders" routerLinkActive="active">Orders</a>
+  
+        <a (click)="logOut()">Log Out</a>
+      </ng-template>
+  
+    </nav>
+  </header> -->
