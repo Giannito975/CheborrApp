@@ -4,4 +4,9 @@ export interface IUser {
     password:    string;
 
   }
+
+export interface IBodegaPersonal{
+  userId: string;
+  drinkId: string;
+}
   

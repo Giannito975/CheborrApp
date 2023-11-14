@@ -13,14 +13,9 @@
       "password": "1234"
     }
 ],
-"catalogo":[
+"bodega_personal":[
   {
-    "id": "1",
-    "drink": "Mojito",
-    "price" : 3500,
-    "description" : "Drink with Gin tonic from Australia, with some species from Asia.",
-    "category": "Drink with Alcohol",
-    "urlImage": ""
+    
   }
 ]
 }
