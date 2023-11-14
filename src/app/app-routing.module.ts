@@ -31,6 +31,10 @@ const routes: Routes = [
     component : ForgotPasswordComponent
   },
   {
+    path: 'cocteleria',
+    component: CocteleriaComponent
+  },
+  {
     path: 'bodega-personal',
     component: BodegaPersonalComponent
   },

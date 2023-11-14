@@ -101,6 +101,12 @@
       "name": "lisa",
       "email": "lisa",
       "password": "123"
+    },
+    {
+      "id": "lt6ccPq",
+      "name": "Carlos",
+      "email": "carlos@carlos.carlos",
+      "password": "carlos"
     }
   ]
 }
