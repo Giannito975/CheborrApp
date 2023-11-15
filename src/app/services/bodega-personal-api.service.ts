@@ -10,6 +10,7 @@ export class BodegaPersonalService{
 
   public baseURL: string = "http://localhost:3000/bodega_personal";
 
+
   private bodegaPersonal: BodegaPersonal | undefined;
 
   constructor(private http: HttpClient) { }
@@ -24,7 +25,12 @@ public getCocktails(): Observable<BodegaPersonal[]> {
   return this.http.get<BodegaPersonal[]>(`${this.baseURL}`);
 }
 
+//me traigo todos los objetos de bodega personal y los filtro por el userId del usuario logueado
 public getCocktailsFromUser(userId: string){
+
+}
+
+public getCocktailFromUser(userId : string, cocktailId : string){
 
 }
 
