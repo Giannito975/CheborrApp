@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/services/models';
 import { UsersApiService } from 'src/app/services/users-api.service';
 
 @Component({
@@ -8,14 +10,16 @@ import { UsersApiService } from 'src/app/services/users-api.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(public usersApiService: UsersApiService) {}
-    ngOnInit() {
-      this.getUserToAuth();
+  public loggedUserData: User | undefined;
+
+  constructor(private authService: AuthService, public usersApiService: UsersApiService) {}
+
+  ngOnInit() {
+    if (this.authService) {
+      this.loggedUserData = this.authService.getUserFromLocalStorage();
+    } else {
+      console.error('AuthService no está inicializado.');
     }
-    getUserToAuth() {
-      this.usersApiService.getUsers().subscribe((user) => {
-        console.log(user);
-      });
-    }
+  }
 
 }

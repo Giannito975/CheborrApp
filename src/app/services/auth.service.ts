@@ -8,37 +8,36 @@ import { Observable, lastValueFrom } from 'rxjs';
 })
 export class AuthService {
 
-  private user: User | undefined;
+  public user: User | undefined;
   public userLoggedIn: boolean = false;
-  
+
   get currentUser(): User | undefined {
     return this.user;
   }
 
   constructor(private usersApiService: UsersApiService) { }
 
-  //  get currentUser(): User | undefined {
-  //   if (!this.user) return undefined;
 
-  // return structuredClone(this.user);
-  //  }
- 
+  /*return structuredClone(this.user);
+   }*/
+
 
 
   public async login(email: string, password: string): Promise<boolean> {
-
     this.userLoggedIn = false;
 
     try {
-      let apiResponse: Observable<User[]> = this.usersApiService.getUserToAuth(email, password);
+      let apiResponse: Observable<User[]> = this.usersApiService.getUserToAuth(
+        email,
+        password
+      );
 
       let userResponse: User[] = await lastValueFrom(apiResponse);
 
       this.user = userResponse[0];
 
       if (this.user) {
-
-        localStorage.setItem('token', this.user.id.toString());
+        localStorage.setItem('user', JSON.stringify(this.user));
         this.userLoggedIn = true;
       }
     } catch (error) {
@@ -48,6 +47,15 @@ export class AuthService {
     return this.userLoggedIn;
   }
 
+  public getUserFromLocalStorage(): User | undefined {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+      this.userLoggedIn = true;
+    }
+    return this.user;
+  }
+
   public logOut(): void {
     this.user = undefined;
     this.userLoggedIn = false;
@@ -55,17 +63,17 @@ export class AuthService {
   }
 
   public checkAuthentication(): boolean {
-    return localStorage.getItem('token') ? true : false;
+    return localStorage.getItem('user') ? true : false;
   }
 
-  public addUser(user: User){
-    return new Promise<User>((resolve, reject) =>{
-        this.usersApiService.addUser(user).subscribe({    
-            next: data => resolve(data),
-            error: error => reject(error)
-        })
+  public addUser(user: User) {
+    return new Promise<User>((resolve, reject) => {
+      this.usersApiService.addUser(user).subscribe({
+        next: data => resolve(data),
+        error: error => reject(error)
+      })
     });
-}
+  }
 
 
 }
