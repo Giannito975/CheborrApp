@@ -4,40 +4,38 @@ import { UsersApiService } from './users-api.service';
 import { Observable, lastValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private user: User | undefined;
   public userLoggedIn: boolean = false;
-  
+
   get currentUser(): User | undefined {
     return this.user;
   }
 
-  constructor(private usersApiService: UsersApiService) { }
+  constructor(private usersApiService: UsersApiService) {}
 
   //  get currentUser(): User | undefined {
   //   if (!this.user) return undefined;
 
   // return structuredClone(this.user);
   //  }
- 
-
 
   public async login(email: string, password: string): Promise<boolean> {
-
     this.userLoggedIn = false;
 
     try {
-      let apiResponse: Observable<User[]> = this.usersApiService.getUserToAuth(email, password);
+      let apiResponse: Observable<User[]> = this.usersApiService.getUserToAuth(
+        email,
+        password
+      );
 
       let userResponse: User[] = await lastValueFrom(apiResponse);
 
       this.user = userResponse[0];
 
       if (this.user) {
-
         localStorage.setItem('token', this.user.id.toString());
         this.userLoggedIn = true;
       }
@@ -46,6 +44,20 @@ export class AuthService {
     }
 
     return this.userLoggedIn;
+  }
+
+  ///recupero de contraseña
+
+  private isPasswordResetEmailSent: boolean = false;
+
+  public getPasswordResetEmailStatus(): boolean {
+    return this.isPasswordResetEmailSent;
+  }
+
+  public sendPasswordResetEmail(email: string): void {
+    setTimeout(() => {
+      this.isPasswordResetEmailSent = true;
+    }, 2000);
   }
 
   public logOut(): void {
@@ -58,14 +70,12 @@ export class AuthService {
     return localStorage.getItem('token') ? true : false;
   }
 
-  public addUser(user: User){
-    return new Promise<User>((resolve, reject) =>{
-        this.usersApiService.addUser(user).subscribe({    
-            next: data => resolve(data),
-            error: error => reject(error)
-        })
+  public addUser(user: User) {
+    return new Promise<User>((resolve, reject) => {
+      this.usersApiService.addUser(user).subscribe({
+        next: (data) => resolve(data),
+        error: (error) => reject(error),
+      });
     });
-}
-
-
+  }
 }

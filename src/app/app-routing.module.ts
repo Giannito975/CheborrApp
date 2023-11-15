@@ -7,6 +7,7 @@ import { BodegaPersonalComponent } from './components/bodega-personal/bodega-per
 import { CocteleriaComponent } from './components/cocteleria/cocteleria.component';
 import { Error404Component } from './components/error404/error404.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'cocteleria',
     component: CocteleriaComponent
+  },
+  {
+    path: 'nosotros',
+    component: AboutUsComponent
   },
   {
     path: 'bodega-personal',
