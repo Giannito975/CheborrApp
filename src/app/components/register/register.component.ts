@@ -28,14 +28,12 @@ export class RegisterComponent  {
     
     if (this.areFieldsValid()) {
       this.authService.addUser(this.user)
-        .then(() => {
+        .subscribe((addedUser : User) => {
           // Registro exitoso, navegar a la página de inicio
           this.router.navigate(['/home']);
-          this.mostrarSweetAlertBienvenido();
-          console.log(this.user);
-          
-        })
-        .catch(error => {
+          this.mostrarSweetAlertBienvenido(addedUser.name);
+          console.log(addedUser);
+         },error => {
           // Error durante el registro, mostrar alerta
           console.error('Error durante el registro:', error);
           this.mostrarSweetAlert();
@@ -61,9 +59,9 @@ mostrarSweetAlertCamposVacios(): void {
       text: 'Usuario invalido!',
     });
   }
-  mostrarSweetAlertBienvenido(): void {
+  mostrarSweetAlertBienvenido(name: string): void {
     Swal.fire({
-      title: 'Bienvenido',
+      title: `Bienvenido, ${name}!`,
       imageUrl:"https://i.giphy.com/media/ylzObgDRgAI9JpFgOU/200w.gif",
     });
   }

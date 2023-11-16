@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './models';
 import { UsersApiService } from './users-api.service';
-import { Observable, lastValueFrom } from 'rxjs';
+import { Observable, lastValueFrom, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,12 @@ export class AuthService {
 
   get currentUser(): User | undefined {
     return this.user;
-  }
+  } 
 
   constructor(private usersApiService: UsersApiService) { }
 
 
-  /*return structuredClone(this.user);
-   }*/
-
-
-
-  public async login(email: string, password: string): Promise<boolean> {
+  public async login(email: string, password: string): Promise<{success: boolean, name?:string}> {
     this.userLoggedIn = false;
 
     try {
@@ -39,12 +34,13 @@ export class AuthService {
       if (this.user) {
         localStorage.setItem('user', JSON.stringify(this.user));
         this.userLoggedIn = true;
+        return { success: true, name: this.user.name };
       }
     } catch (error) {
       throw error;
     }
 
-    return this.userLoggedIn;
+    return { success: false };
   }
 
   public getUserFromLocalStorage(): User | undefined {
@@ -65,14 +61,16 @@ export class AuthService {
   public checkAuthentication(): boolean {
     return localStorage.getItem('user') ? true : false;
   }
-
-  public addUser(user: User) {
-    return new Promise<User>((resolve, reject) => {
-      this.usersApiService.addUser(user).subscribe({
-        next: data => resolve(data),
-        error: error => reject(error)
-      })
-    });
+  
+  public addUser(user: User): Observable<User> {
+    return this.usersApiService.addUser(user)
+      .pipe(
+        tap((addedUser: User) => {
+          this.user = addedUser;
+          this.userLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(this.user));
+        })
+      );
   }
 
 

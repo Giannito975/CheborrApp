@@ -107,6 +107,24 @@
       "name": "Carlos",
       "email": "carlos@carlos.carlos",
       "password": "carlos"
+    },
+    {
+      "id": "uwpqnmX",
+      "name": "camila",
+      "email": "cami@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "TJ7BBVZ",
+      "name": "emanuel",
+      "email": "ema@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "Abhazno",
+      "name": "sebastian",
+      "email": "asea@asdf",
+      "password": "123"
     }
   ]
 }

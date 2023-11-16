@@ -10,14 +10,15 @@ import { User } from 'src/app/services/models';
 })
 export class NavbarComponent  implements OnInit{
 
+  
+  currentUser: User | undefined;
+
   constructor(private router: Router, private authService: AuthService) { }
 
-  currentUser: User | undefined;
-  
+
   ngOnInit(): void {
-    if (this.authService.userLoggedIn) {
-      this.currentUser = this.authService.currentUser;
-    }
+    // Inicializa currentUser con el estado actual del servicio
+    this.currentUser = this.authService.currentUser;
   }
 
   public logOut() {

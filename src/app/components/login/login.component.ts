@@ -23,25 +23,26 @@ export class LoginComponent  {
   public async initSession() {
   
     try {
-      let isLogin: boolean = await this.authService.login(this.email, this.password);
-
-      if (isLogin) {
+      //let isLogin: boolean = await this.authService.login(this.email, this.password);
+      const loginResult = await this.authService.login(this.email, this.password);
+      if (loginResult.success) {
+        this.mostrarSweetAlert('success', 'Inicio de sesion exitosa', `Bienvenido, ${loginResult.name}!`);
         this.router.navigate(["/home"]);
       }else{
-        this.mostrarSweetAlert();
+        this.mostrarSweetAlert('error', '¡Oops...', 'No existe el usuario!');
       }
-
-    } catch (error) {
+      
+    } catch (error) { 
       console.log(error);
     }
   }   
 
 
-  mostrarSweetAlert(): void {
+  mostrarSweetAlert(icon: 'success' | 'error', title: string, text: string): void {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'No existe el usuario!',
+      icon: icon,
+      title: title,
+      text: text,
     });
   }
 
