@@ -1,51 +1,59 @@
-/* styles.css o tu archivo de estilos principal */
-
-.coctel-list-container {
-  max-width: 600px; /* Ajusta según tus preferencias */
-  margin: 0 auto;
-  padding: 20px;
-}
 
 .search-input {
-  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  gap: 20px;
+  grid-auto-rows: minmax(200px, auto);
+  margin-top: 40px;
 }
 
-/* Nuevo estilo para .drink-card-container */
-.drink-card-container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente fila */
-  justify-content: space-between; /* Alinea las tarjetas horizontalmente */
+.coctel-list-container {
+  max-width: 1280px;
+  margin: auto;
 }
 
 .drink-card {
-  width: 48%; /* Establece el ancho para dos tarjetas por fila (puedes ajustar según sea necesario) */
-  margin-bottom: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  border-radius: 8px; /* Agregado borde redondeado a las tarjetas */
-  overflow: hidden;
-  border: 1px solid #ddd;
-}
-
-.drink-card:hover {
-  transform: scale(1.02);
-}
-
-.drink-title {
-  font-size: 18px;
-  margin: 10px;
-}
-
-.drink-img {
   width: 100%;
-  height: auto;
-  object-fit: cover; /* Ajusta el tamaño de la imagen sin deformarla */
-  border-radius: 8px 8px 0 0; /* Añade bordes redondeados a la imagen */
+  border: solid 2px #0000001f;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 1px #00000017;
+  position: relative;
+  overflow: hidden;
+}
+
+.favourite-img{
+  max-width: 50px;
+}
+
+.drink-card button {
+  border: none;
+  background: #fff;
+  position: absolute;
+  right: 30px;
+  top: 60px;
+  padding: 10px;
+  border-radius: 50%;
+  display: none;
+  border: solid 1px #000;
+}
+
+img.favourite-img {
+  max-width: 35px;
+}
+
+.drink-card:hover button {
+  display: block;
+}
+
+h4.drink-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-top: 10px;
 }

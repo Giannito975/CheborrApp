@@ -4,9 +4,11 @@
       <input type="text" class="form-control" name="filterDrink" placeholder="Search..." [(ngModel)]="filterDrink">
     </div>
   </div>
-  <div class="drink-card" *ngFor="let drink of allCocktailsList | filter:filterDrink">
-    <h4 class="drink-title">{{drink.strDrink}}</h4>
-    <button (click)="addCocktailToBodegaPersonal(drink.idDrink)">Add to Favourites</button>
-    <img class="drink-img" [src]="drink.strDrinkThumb" alt="Cocktail">
+  <div class="card-grid">
+    <div class="drink-card" *ngFor="let drink of allCocktailsList | filter:filterDrink">
+      <h4 class="drink-title">{{drink.strDrink}}</h4>
+      <img class="drink-img" [src]="drink.strDrinkThumb" alt="Cocktail">
+      <button (click)="addCocktailToBodegaPersonal(drink.idDrink)"><img class="favourite-img" src="\assets\img\heart_2044.png" alt="hearth"></button>
+    </div>
   </div>
 </div>

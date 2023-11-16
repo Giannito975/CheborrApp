@@ -92,20 +92,19 @@ export class CoctelListComponent implements OnInit {
   }*/
 
   async addCocktailToBodegaPersonal(idDrink: any): Promise<void> {
-    try {
+   
       const loggedUser = this.authService.getUserFromLocalStorage();
   
       if (!loggedUser) {
         // Si NO está logueado, le decimos que para agregar tragos a su bodega personal se tiene que loguear
         this.pleaseLogInAlert();
         return;
-      }
-  
-      const bodegaPersonalNueva = new BodegaPersonal();
+      }else{
+        const bodegaPersonalNueva = new BodegaPersonal();
       bodegaPersonalNueva.userId = loggedUser.id;
       bodegaPersonalNueva.drinkId = idDrink;
   
-      // Verificar si el trago ya existe en la bodega personal del usuario
+      // Verifica si el trago ya existe en la bodega personal del usuario
       const tragoYaExiste = await this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(bodegaPersonalNueva);
   
       if (!tragoYaExiste) {
@@ -116,9 +115,7 @@ export class CoctelListComponent implements OnInit {
         // Si el trago YA está en su bodega personal, le decimos que no puede agregarlo porque ya lo tiene
         this.negativeAddCocktailAlert();
       }
-    } catch (error) {
-      console.error('Error al agregar el trago a la bodega personal:', error);
-    }
+      }
   }
   
   
