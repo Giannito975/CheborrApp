@@ -91,7 +91,7 @@ export class CoctelListComponent implements OnInit {
     }
   }*/
 
-  async addCocktailToBodegaPersonal(idDrink: any): Promise<void> {
+  public async addCocktailToBodegaPersonal(idDrink: any): Promise<void> {
    
       const loggedUser = this.authService.getUserFromLocalStorage();
   
@@ -103,7 +103,7 @@ export class CoctelListComponent implements OnInit {
         const bodegaPersonalNueva = new BodegaPersonal();
       bodegaPersonalNueva.userId = loggedUser.id;
       bodegaPersonalNueva.drinkId = idDrink;
-  
+        
       // Verifica si el trago ya existe en la bodega personal del usuario
       const tragoYaExiste = await this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(bodegaPersonalNueva);
   

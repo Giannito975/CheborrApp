@@ -29,11 +29,15 @@ export class BodegaPersonalService {
   //Get all de todos los cocktails de la bodega personal de un usuario
   public getCocktails(): Observable<BodegaPersonal[]> {
     return this.http.get<BodegaPersonal[]>(`${this.baseURL}`);
-  }
+  } 
+
+  
 
   //me traigo todos los objetos de bodega personal y los filtro por el userId del usuario logueado, falta hacer la logica
-  public getCocktailsFromUser(userId: string) {
-
+  public getCocktailsFromUser(userId: string): Observable<BodegaPersonal[]> {
+    return this.getCocktails().pipe(
+      map(cocktails => cocktails.filter(item => item.userId === userId))
+    );
   }
 
 
