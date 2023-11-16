@@ -45,7 +45,7 @@ export class CoctelListComponent implements OnInit {
       })
   }
 
-  /*addCocktailToBodegaPersonal(idDrink : any) {
+  /*addCocktailToBodegaPersonal(idDrink : any) {  *********************          INTENTO 1 NO FUNCIONA
     let loggedUser = this.authService.getUserFromLocalStorage();
     const bodegaPersonalNueva = new BodegaPersonal();
     bodegaPersonalNueva.userId = loggedUser?.id;
@@ -66,7 +66,7 @@ export class CoctelListComponent implements OnInit {
     }
   }*/
 
-  addCocktailToBodegaPersonal(idDrink: any) {
+  /*addCocktailToBodegaPersonal(idDrink: any) { ********************** INTENTO 2 TAMPOCO FUNCIONA
     const loggedUser = this.authService.getUserFromLocalStorage();
   
     if (loggedUser) {
@@ -75,7 +75,7 @@ export class CoctelListComponent implements OnInit {
       bodegaPersonalNueva.drinkId = idDrink;
   
       // Verificar si el trago ya existe en la bodega personal del usuario
-      const tragoYaExiste = this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(bodegaPersonalNueva);
+      const tragoYaExiste = this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(idDrink);
   
       if (!tragoYaExiste) {
         // Si el trago no está en su bodega personal, lo agregaría y damos la alerta que se agregó
@@ -89,7 +89,38 @@ export class CoctelListComponent implements OnInit {
       // Si NO está logueado, le decimos que para agregar tragos a su bodega personal se tiene que loguear
       this.pleaseLogInAlert();
     }
+  }*/
+
+  async addCocktailToBodegaPersonal(idDrink: any): Promise<void> {
+    try {
+      const loggedUser = this.authService.getUserFromLocalStorage();
+  
+      if (!loggedUser) {
+        // Si NO está logueado, le decimos que para agregar tragos a su bodega personal se tiene que loguear
+        this.pleaseLogInAlert();
+        return;
+      }
+  
+      const bodegaPersonalNueva = new BodegaPersonal();
+      bodegaPersonalNueva.userId = loggedUser.id;
+      bodegaPersonalNueva.drinkId = idDrink;
+  
+      // Verificar si el trago ya existe en la bodega personal del usuario
+      const tragoYaExiste = await this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(bodegaPersonalNueva);
+  
+      if (!tragoYaExiste) {
+        // Si el trago no está en su bodega personal, lo agregaría y damos la alerta que se agregó
+        await this.bodegaPersonalService?.addCocktailToBodegaPersonal(bodegaPersonalNueva);
+        this.positiveAddCocktailAlert();
+      } else {
+        // Si el trago YA está en su bodega personal, le decimos que no puede agregarlo porque ya lo tiene
+        this.negativeAddCocktailAlert();
+      }
+    } catch (error) {
+      console.error('Error al agregar el trago a la bodega personal:', error);
+    }
   }
+  
   
 
   pleaseLogInAlert() : void {
