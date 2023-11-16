@@ -6,7 +6,7 @@
   </div>
   <div class="drink-card" *ngFor="let drink of allCocktailsList | filter:filterDrink">
     <h4 class="drink-title">{{drink.strDrink}}</h4>
-    <button (click)="addCocktailToBodegaPersonal()">Add to Favourites</button>
+    <button (click)="addCocktailToBodegaPersonal(drink.idDrink)">Add to Favourites</button>
     <img class="drink-img" [src]="drink.strDrinkThumb" alt="Cocktail">
   </div>
 </div>

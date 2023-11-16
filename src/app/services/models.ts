@@ -29,4 +29,12 @@ export class BodegaPersonal implements IBodegaPersonal {
     this.userId = bodegaPersonal.userId === undefined ? null : bodegaPersonal.userId;
     this.drinkId = bodegaPersonal.drinkId === undefined ? null : bodegaPersonal.drinkId;
   }
+
+  public set setUserId(value : string){
+    this.userId = value;
+  }
+
+  public set setDrinkId(value : string){
+    this.drinkId = value;
+  }
 }
