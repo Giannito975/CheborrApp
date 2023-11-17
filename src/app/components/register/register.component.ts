@@ -61,7 +61,7 @@ mostrarSweetAlertCamposVacios(): void {
   }
 
 
-  mostrarSweetAlertBienvenido(): void {
+  mostrarSweetAlertBienvenido(name:string): void {
     Swal.fire({
       title: `Bienvenido, ${name}!`,
       imageUrl:"https://i.giphy.com/media/ylzObgDRgAI9JpFgOU/200w.gif",

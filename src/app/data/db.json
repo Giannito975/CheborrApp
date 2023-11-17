@@ -30,18 +30,31 @@
       "name": "martina",
       "email": "martu@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "3DUebuS",
+      "name": "as",
+      "email": "123",
+      "password": "123"
+    },
+    {
+      "id": "W7GjEjO",
+      "name": "susansa",
+      "email": "susana",
+      "password": "123"
+    },
+    {
+      "id": "k1EcSvj",
+      "name": "gusti",
+      "email": "gusti",
+      "password": "123"
     }
   ],
   "bodega-personal": [
     {
-      "userId": "1",
-      "drinkId": "15423",
+      "userId": "k1EcSvj",
+      "drinkId": "14588",
       "id": 1
-    },
-    {
-      "userId": "1",
-      "drinkId": "17105",
-      "id": 2
     }
   ]
 }
