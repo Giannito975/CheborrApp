@@ -30,6 +30,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { BodegaPersonalListComponent } from './components/bodega-personal/bodega-personal-list/bodega-personal-list.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 
     HeroComponent,
     ForgotPasswordComponent,
+    BodegaPersonalListComponent,
   ],
   imports: [
     BrowserModule,

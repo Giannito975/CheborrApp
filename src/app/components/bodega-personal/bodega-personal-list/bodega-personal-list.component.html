@@ -1,0 +1,14 @@
+<div class="coctel-list-container">
+    <div class="search-input">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterDrink" placeholder="Search..." [(ngModel)]="filterDrink">
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="drink-card" *ngFor="let drink of allCocktailsList | filter:filterDrink">
+        <h4 class="drink-title">{{drink.strDrink}}</h4>
+        <img class="drink-img" [src]="drink.strDrinkThumb" alt="Cocktail">
+        <button (click)="removeCocktailToBodegaPersonal(drink.idDrink)"><img class="favourite-img" src="\assets\img\heart_2044.png" alt="hearth"></button>
+      </div>
+    </div>
+  </div>
