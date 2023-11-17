@@ -13,6 +13,9 @@ import { of, switchMap } from 'rxjs';
   styleUrls: ['./bodega-personal-list.component.css'],
 })
 export class BodegaPersonalListComponent implements OnInit {
+removeCocktailToBodegaPersonal(arg0: any) {
+throw new Error('Method not implemented.');
+}
   public allCocktailsList: any = [];
   filterDrink = '';
 
