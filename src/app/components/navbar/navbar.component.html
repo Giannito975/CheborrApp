@@ -19,10 +19,6 @@
     </ng-container>   
 
       <ng-template #isLoggedIn>
-        <a class="cocteleria-link" routerLink="/cocteleria" routerLinkActive="active"></a>
-
-            <!-- con el button logro poder redireccionar en este caso el usuario a su perfil con sus datos por ejemplo
-            en el caso que no se quiera, se deja con <P> -->
         <div>
           <button mat-button *ngIf="currentUser">{{currentUser.name }}</button>
         </div>
