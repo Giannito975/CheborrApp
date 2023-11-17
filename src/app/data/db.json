@@ -110,8 +110,20 @@
     }
   ],
   "bodega-personal": [
-      
+    {
+      "userId": "1",
+      "drinkId": "15423",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "drinkId": "14588",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "drinkId": "15346",
+      "id": 3
+    }
   ]
-
-  
 }
