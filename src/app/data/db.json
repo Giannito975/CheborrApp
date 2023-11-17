@@ -107,24 +107,6 @@
       "name": "Carlos",
       "email": "carlos@carlos.carlos",
       "password": "carlos"
-    },
-    {
-      "id": "uwpqnmX",
-      "name": "camila",
-      "email": "cami@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "TJ7BBVZ",
-      "name": "emanuel",
-      "email": "ema@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "Abhazno",
-      "name": "sebastian",
-      "email": "asea@asdf",
-      "password": "123"
     }
   ],
   "bodega-personal": [
@@ -140,8 +122,18 @@
     },
     {
       "userId": "1",
-      "drinkId": "15346",
+      "drinkId": "15288",
       "id": 3
+    },
+    {
+      "userId": "1",
+      "drinkId": "17060",
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "drinkId": "17834",
+      "id": 5
     }
   ]
 }
