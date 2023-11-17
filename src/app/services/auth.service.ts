@@ -4,7 +4,7 @@ import { UsersApiService } from './users-api.service';
 import { Observable, lastValueFrom, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
@@ -15,7 +15,7 @@ export class AuthService {
     return this.user;
   } 
 
-  constructor(private usersApiService: UsersApiService) { }
+  constructor(private usersApiService: UsersApiService) {}
 
 
   public async login(email: string, password: string): Promise<{success: boolean, name?:string}> {
@@ -52,6 +52,20 @@ export class AuthService {
     return this.user;
   }
 
+  ///recupero de contraseña
+
+  private isPasswordResetEmailSent: boolean = false;
+
+  public getPasswordResetEmailStatus(): boolean {
+    return this.isPasswordResetEmailSent;
+  }
+
+  public sendPasswordResetEmail(email: string): void {
+    setTimeout(() => {
+      this.isPasswordResetEmailSent = true;
+    }, 2000);
+  }
+
   public logOut(): void {
     this.user = undefined;
     this.userLoggedIn = false;
@@ -74,4 +88,13 @@ export class AuthService {
   }
 
 
-}
+//   public addUser(user: User) {
+//     return new Promise<User>((resolve, reject) => {
+//       this.usersApiService.addUser(user).subscribe({
+//         next: (data) => resolve(data),
+//         error: (error) => reject(error),
+//       });
+//     });
+//   }
+// }
+  }
