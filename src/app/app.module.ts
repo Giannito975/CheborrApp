@@ -31,8 +31,7 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BodegaPersonalListComponent } from './components/bodega-personal/bodega-personal-list/bodega-personal-list.component';
-
-
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +51,7 @@ import { BodegaPersonalListComponent } from './components/bodega-personal/bodega
     HeroComponent,
     ForgotPasswordComponent,
     BodegaPersonalListComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
