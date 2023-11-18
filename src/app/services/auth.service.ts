@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './models';
 import { UsersApiService } from './users-api.service';
-import { Observable, lastValueFrom, tap } from 'rxjs';
+import { Observable, lastValueFrom, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,7 @@ export class AuthService {
   } 
 
   constructor(private usersApiService: UsersApiService) {}
+
 
 
   public async login(email: string, password: string): Promise<{success: boolean, name?:string}> {
@@ -52,19 +53,8 @@ export class AuthService {
     return this.user;
   }
 
-  ///recupero de contraseña
 
-  private isPasswordResetEmailSent: boolean = false;
 
-  public getPasswordResetEmailStatus(): boolean {
-    return this.isPasswordResetEmailSent;
-  }
-
-  public sendPasswordResetEmail(email: string): void {
-    setTimeout(() => {
-      this.isPasswordResetEmailSent = true;
-    }, 2000);
-  }
 
   public logOut(): void {
     this.user = undefined;
@@ -87,6 +77,32 @@ export class AuthService {
       );
   }
 
+
+  //funcionalidad de forgot-password
+  public async changePassword(oldPassword:string, newPassword: string): Promise<{success: boolean; password?: string | undefined;}> {
+    this.userLoggedIn = false;
+
+    try {
+      let apiResponse: Observable<User> = this.usersApiService.getUserToAuthPassword(
+        oldPassword,
+        newPassword,
+      );
+        console.log(oldPassword);
+        console.log(newPassword);
+    //   let user: User = await lastValueFrom(apiResponse);
+
+    //   if (user !== undefined) {
+    //     this.user = user;
+    //     localStorage.setItem('user', JSON.stringify(this.user));
+    //     this.userLoggedIn = true;
+    //     return { success: true, password: this.user.password };
+    //   }
+     }catch (error) {
+      console.error('Error al obtener respuesta del servicio:', error);
+   }
+
+    return { success: false };
+  }
 
 //   public addUser(user: User) {
 //     return new Promise<User>((resolve, reject) => {

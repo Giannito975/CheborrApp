@@ -4,55 +4,18 @@
       "id": "1",
       "name": "juan manuel",
       "email": "juan@gmail.com",
-      "password": "123"
+      "password": "1234"
     },
     {
       "id": "2",
       "name": "gianni",
       "email": "gianni@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "TdJ4TMZ",
-      "name": "1",
-      "email": "321",
-      "password": "123",
-      "phoneNumber": 0,
-      "address": "",
-      "cart": {
-        "id": "",
-        "productLineArray": [],
-        "totalToPay": 0
-      }
-    },
-    {
-      "id": "x-HEpg4",
-      "name": "martina",
-      "email": "martu@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "3DUebuS",
-      "name": "as",
-      "email": "123",
-      "password": "123"
-    },
-    {
-      "id": "W7GjEjO",
-      "name": "susansa",
-      "email": "susana",
-      "password": "123"
-    },
-    {
-      "id": "k1EcSvj",
-      "name": "gusti",
-      "email": "gusti",
-      "password": "123"
+      "password": "1234"
     }
   ],
   "bodega-personal": [
     {
-      "userId": "k1EcSvj",
+      "userId": "1",
       "drinkId": "14588",
       "id": 1
     }
