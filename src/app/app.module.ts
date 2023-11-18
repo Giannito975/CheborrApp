@@ -30,7 +30,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BodegaPersonalListComponent } from './components/bodega-personal/bodega-personal-list/bodega-personal-list.component';
+
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     FilterPipe,
     HeroComponent,
     ForgotPasswordComponent,
-    AboutUsComponent,
+    BodegaPersonalListComponent,
   ],
   imports: [
     BrowserModule,

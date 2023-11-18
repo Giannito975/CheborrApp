@@ -9,7 +9,8 @@ export class FilterPipe implements PipeTransform {
         if (arg === '' || arg.length < 0) return value;
         const resultDrinks = [];
         for (const drink of value) {
-          if (drink.strDrink.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          const name = drink?.strDrink??drink?.title;
+          if (name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
             resultDrinks.push(drink);
           };
         };
