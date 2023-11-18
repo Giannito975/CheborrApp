@@ -8,7 +8,7 @@
       <div class="drink-card" *ngFor="let drink of myCocktails | filter:filterDrink">
         <h4 class="drink-title">{{drink.title}}</h4>
         <img class="drink-img" [src]="drink.imgUrl" alt="Cocktail">
-        <button (click)="removeCocktailToBodegaPersonal(drink.id)"><img class="favourite-img" src="\assets\img\heart_2044.png" alt="hearth"></button>
+        <button (click)="removeCocktailToBodegaPersonal(drink.id)"><img class="favourite-img" src="\assets\img\delete.jpeg" alt="hearth"></button>
       </div>
     </div>
   </div>
