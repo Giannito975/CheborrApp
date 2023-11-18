@@ -30,7 +30,11 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+<<<<<<< HEAD
 import { BodegaPersonalListComponent } from './components/bodega-personal/bodega-personal-list/bodega-personal-list.component';
+=======
+import { AboutUsComponent } from './components/about-us/about-us.component';
+>>>>>>> ed8a7ca81a4a4608eac2afb1182cfe907621ea48
 
 
 @NgModule({
@@ -48,10 +52,13 @@ import { BodegaPersonalListComponent } from './components/bodega-personal/bodega
     RegisterComponent,
     BodegaPersonalComponent,
     FilterPipe,
-
     HeroComponent,
     ForgotPasswordComponent,
+<<<<<<< HEAD
     BodegaPersonalListComponent,
+=======
+    AboutUsComponent,
+>>>>>>> ed8a7ca81a4a4608eac2afb1182cfe907621ea48
   ],
   imports: [
     BrowserModule,

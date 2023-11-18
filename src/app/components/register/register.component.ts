@@ -39,7 +39,7 @@ export class RegisterComponent  {
           this.mostrarSweetAlert();
         });
     } else {
-      // Mostrar alerta de campos vacíos
+
       this.mostrarSweetAlertCamposVacios();
     }
 }
@@ -59,7 +59,9 @@ mostrarSweetAlertCamposVacios(): void {
       text: 'Usuario invalido!',
     });
   }
-  mostrarSweetAlertBienvenido(name: string): void {
+
+
+  mostrarSweetAlertBienvenido(name:string): void {
     Swal.fire({
       title: `Bienvenido, ${name}!`,
       imageUrl:"https://i.giphy.com/media/ylzObgDRgAI9JpFgOU/200w.gif",

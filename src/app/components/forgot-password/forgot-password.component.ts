@@ -1,5 +1,7 @@
-// forgot-password.component.ts
+
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,10 +11,17 @@ import { Component } from '@angular/core';
 export class ForgotPasswordComponent {
   public email: string = '';
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  public resetPassword(): void {
-  
-    console.log('Se enviará un correo electrónico de recuperación a:', this.email);
+  public resetPassword(): void{
+
+      this.authService.sendPasswordResetEmail(this.email);
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Correo enviado',
+          text: 'Se ha enviado un correo electrónico de recuperación de contraseña. Por favor, revisa tu bandeja de entrada.'
+        });
   }
+  
 }
