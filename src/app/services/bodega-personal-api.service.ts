@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, lastValueFrom, map } from 'rxjs';
 import { BodegaPersonal, User } from './models';
 import { IBodegaPersonal } from './interface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +11,12 @@ import { IBodegaPersonal } from './interface';
 export class BodegaPersonalService {
   public baseURL: string = 'http://localhost:3000/bodega-personal';
 
-  private bodegaPersonal: BodegaPersonal | undefined;
+  //a esto hay que concatenarle el ID del trago
+  public getCocktailByIdFromAPI = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
 
-  constructor(private http: HttpClient) {}
+  //private bodegaPersonal: BodegaPersonal | undefined;
+
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   public addCocktailToBodegaPersonal(
     bodegaPersonal: IBodegaPersonal
@@ -30,15 +34,25 @@ export class BodegaPersonalService {
     );
   }
 
-  //Get all de todos los cocktails de la bodega personal de un usuario
+  //SEGUNDO PASO  Get all de todos los cocktails de la bodega personal de un usuario
   public getCocktails(): Observable<IBodegaPersonal[]> {
     return this.http.get<IBodegaPersonal[]>(`${this.baseURL}`);
   }
 
-  //me traigo todos los objetos de bodega personal y los filtro por el userId del usuario logueado, falta hacer la logica
+  //PRIMER PASO me traigo todos los objetos de bodega personal y los filtro por el userId del usuario logueado, falta hacer la logica
   public getCocktailsFromUser(userId: string): Observable<IBodegaPersonal[]> {
     return this.getCocktails().pipe(
       map((cocktails) => cocktails.filter((item) => item.userId === userId))
     );
   }
+
+
+  public deleteBodegaPersonal(id: string) {
+    return this.http.delete(this.baseURL+"/"+id);
+  }
+
+
+
+
+
 }

@@ -24,10 +24,14 @@ export class User implements IUser {
 export class BodegaPersonal implements IBodegaPersonal {
   userId: string;
   drinkId: string;
+  imgUrl: string;
+  title: string;
 
   constructor(bodegaPersonal?: any) {
     this.userId = (bodegaPersonal && bodegaPersonal.userId) || null;
     this.drinkId = (bodegaPersonal && bodegaPersonal.drinkId) || null;
+    this.imgUrl = (bodegaPersonal && bodegaPersonal.imgUrl) || null;
+    this.title = (bodegaPersonal && bodegaPersonal.title) || null;
   }
 
   public set setUserId(value : string){

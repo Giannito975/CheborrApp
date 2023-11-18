@@ -17,6 +17,7 @@ import { of, switchMap } from 'rxjs';
   styleUrls: ['./coctel-list.component.css'],
 })
 export class CoctelListComponent implements OnInit {
+
   public allCocktailsList: any = [];
   filterDrink = '';
 
@@ -51,7 +52,7 @@ export class CoctelListComponent implements OnInit {
       });
   }
 
-  public async addCocktailToBodegaPersonal(idDrink: any): Promise<void> {
+  public async addCocktailToBodegaPersonal(drink: any): Promise<void> {
     const loggedUser = this.authService.getUserFromLocalStorage();
 
     if (!loggedUser) {
@@ -60,15 +61,12 @@ export class CoctelListComponent implements OnInit {
     } else {
       const bodegaPersonalNueva: IBodegaPersonal = {
         userId: loggedUser.id,
-        drinkId: idDrink,
+        drinkId: drink.idDrink,
+        imgUrl: drink.strDrinkThumb,
+        title: drink.strDrink
       };
       console.log({ bodegaPersonalNueva });
-
-      // Verifica si el trago ya existe en la bodega personal del usuario
-      // const tragoYaExiste =
-      //   await this.bodegaPersonalService?.tragoYaExisteEnBodegaPersonal(
-      //     bodegaPersonalNueva
-      //   );
+      
       this.bodegaPersonalService
         .tragoYaExisteEnBodegaPersonal(bodegaPersonalNueva)
         .subscribe((tragoYaExiste) => {

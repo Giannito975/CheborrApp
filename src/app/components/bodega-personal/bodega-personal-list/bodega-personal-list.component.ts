@@ -13,10 +13,8 @@ import { of, switchMap } from 'rxjs';
   styleUrls: ['./bodega-personal-list.component.css'],
 })
 export class BodegaPersonalListComponent implements OnInit {
-removeCocktailToBodegaPersonal(arg0: any) {
-throw new Error('Method not implemented.');
-}
-  public allCocktailsList: any = [];
+
+  public myCocktails: IBodegaPersonal[] = [];
   filterDrink = '';
 
   constructor(
@@ -24,15 +22,40 @@ throw new Error('Method not implemented.');
     private authService: AuthService,
     public usersApiService: UsersApiService,
     private readonly bodegaPersonalService: BodegaPersonalService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.loadDrinks();
+    this.loadCocktailsForUser();
   }
 
-  loadDrinks(): void {
+  removeCocktailToBodegaPersonal(arg0: any) {
+    this.bodegaPersonalService.deleteBodegaPersonal(arg0).subscribe(()=>{
+      this.positiveDeleteCocktailAlert();
+      this.ngOnInit();
+    })
     
   }
+
+  public loadCocktailsForUser(): void {
+    const loggedUser = this.authService.getUserFromLocalStorage();
+    console.log(loggedUser);
+    if (loggedUser) {
+      this.bodegaPersonalService.getCocktailsFromUser(loggedUser?.id)
+        .subscribe(
+          cocktails => {
+            this.myCocktails = cocktails;
+            console.log("entra?");
+            console.log(this.myCocktails);
+
+          },
+          error => {
+            console.error('Error loading cocktails:', error);
+          }
+        );
+    }
+
+  }
+
 
   pleaseLogInAlert(): void {
     Swal.fire({
@@ -45,10 +68,10 @@ throw new Error('Method not implemented.');
     });
   }
 
-  negativeAddCocktailAlert(): void {
+  positiveDeleteCocktailAlert(): void {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
+      icon: 'success',
+      title: 'Adios...',
       text: 'Trago removido de tu Bodega Personal',
     });
   }

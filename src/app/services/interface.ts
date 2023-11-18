@@ -9,5 +9,7 @@ export interface IUser {
 export interface IBodegaPersonal{
   userId: string;
   drinkId: string;
+  imgUrl: string;
+  title: string;
 }
   
