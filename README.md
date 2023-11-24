@@ -9,3 +9,6 @@ Para levantar el proyecto en un entorno de desarrollo debe tipear `ng serve` en 
 ## Rama del repositorio con la última actualización del proyecto
 
 Para levantar el proyecto y probar los últimos desarrollos y actualizaciones, debe levantar el proyecto en el entorno de desarrollo sobre la rama "develop".
+1. npm install
+2. git checkout develop
+3. git pull origin develop 
